@@ -3,6 +3,10 @@
     justify-content: space-between;
     flex-direction: column;
     width: 420px;
+    margin-bottom: 10px;
+}
+.videoTile:last-of-type {
+    margin-bottom: 0;
 }
 
 .videoTile__title,
@@ -17,6 +21,7 @@
 
 .videoTile__title__text,
 .videoTile__views__text{
+    text-transform: uppercase;
     width: 80px;
 }
 
