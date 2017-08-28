@@ -9,7 +9,7 @@ class VideoList extends Component {
         let data = this.props.data;
         let listVideoTiles =
             Object.entries(data).map((item, index) =>
-                <VideoTile key={index} title={item[1].title} views={item[1].views} />
+                <VideoTile key={index} id={item[0]} title={item[1].title} views={item[1].views} />
             );
         return (
             <div>{listVideoTiles}</div>
