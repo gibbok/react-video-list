@@ -33,7 +33,7 @@ class App extends Component {
     this.setState({ data });
   }
   componentDidMount() {
-    // fetch data and populate components
+    // fetch data from json and populate components
     fetch('./data.json').then(response => {
       if (response.status !== 200) {
         console.log('Looks like there was a problem. Status Code: ', response.status);
@@ -53,7 +53,9 @@ class App extends Component {
     return (
       <div className='app'>
         <div className='app__video'>
-          <Header title={this.state.ui.header} />
+          <Header
+            title={this.state.ui.header}
+          />
           <Video
             video={activeVideo}
           />

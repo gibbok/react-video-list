@@ -10,7 +10,7 @@ class VideoTile extends Component {
         this.onClickVideoTile = this.onClickVideoTile.bind(this);
     }
     onClickVideoTile() {
-        // lift state up here, by calling `activeVideo`
+        // lift state up, by calling `activeVideo`
         // passed in `props` by a parent component
         this.props.activeVideo(this.props.id);
     }
