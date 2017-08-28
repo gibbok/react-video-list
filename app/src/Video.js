@@ -6,11 +6,10 @@ class Video extends Component {
     }
     render() {
         let video = this.props.video;
-        let src = `https://www.youtube.com/embed/${video.id}`;
+        let videoContent = !video ? 'Loading video...' :
+                <iframe width="560" height="315" src={`https://www.youtube.com/embed/${video.id}`} frameBorder="0" allowFullScreen></iframe>
         return (
-            <div>
-                <iframe width="560" height="315" src={src} frameBorder="0" allowFullScreen></iframe>
-            </div>
+            <div>{videoContent}</div>
         );
     }
 

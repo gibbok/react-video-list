@@ -10,32 +10,13 @@ class App extends Component {
     this.state = {
       ui: {
         title: 'List of most viewed YouTube videos',
-        titleVideoList: 'Top 10s'
+        titleVideoList: 'Top 10s',
       },
-      data: [
-        {
-          id: 'kJQP7kiw5Fk',
-          title: 'Luis Fonsi - Despacito ft. Daddy Yankee',
-          views: 3446728587,
-          isActive: true
-        },
-        {
-          id: 'RgKAFK5djSk',
-          title: 'Wiz Khalifa - See You Again ft. Charlie Puth [Official Video] Furious 7 Soundtrack',
-          views: 3065485805,
-          isActive: false
-        },
-        {
-          id: '9bZkp7q19f0',
-          title: 'PSY - GANGNAM STYLE(강남스타일) M/V',
-          views: 2941023973,
-          isActive: false
-        }
-      ]
+      data: []
     };
     this.activeVideo = this.activeVideo.bind(this);
   }
-  activeVideo(id){
+  activeVideo(id) {
     let data = [...this.state.data];
     // de activate current active video
     let currentActiveVideo = data.find(video => video.isActive);
@@ -43,7 +24,21 @@ class App extends Component {
     // activate new video
     let index = data.findIndex(video => video.id === id);
     data[index].isActive = true;
-    this.setState({data});
+    this.setState({ data });
+  }
+  componentDidMount() {
+    fetch('./data.json').then(response => {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+      response.json().then(data => {
+        this.setState({ data: data.videos });
+      });
+    }).catch(error => {
+      console.log('There has been a problem with your fetch operation: ', error.message);
+    });
   }
   render() {
     let data = this.state.data;
