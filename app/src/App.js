@@ -1,33 +1,43 @@
 import React, { Component } from 'react';
-import VideoList from './VideoList.js'
+import VideoList from './VideoList.js';
+import Video from './Video';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
       ui: {
         title: 'List of most viewed YouTube videos',
         titleVideoList: 'Top 10s'
       },
-      data: {
-        'kJQP7kiw5Fk':{
+      data: [
+        {
+          id: 'kJQP7kiw5Fk',
           title: 'Luis Fonsi - Despacito ft. Daddy Yankee',
-          views: 3446728587
+          views: 3446728587,
+          isActive: true
         },
-        'RgKAFK5djSk':{
+        {
+          id: 'RgKAFK5djSk',
           title: 'Wiz Khalifa - See You Again ft. Charlie Puth [Official Video] Furious 7 Soundtrack',
-          views: 3065485805  
+          views: 3065485805,
+          isActive: false
         },
-        '9bZkp7q19f0':{
+        {
+          id: '9bZkp7q19f0',
           title: 'PSY - GANGNAM STYLE(강남스타일) M/V',
-          views: 2941023973  
+          views: 2941023973,
+          isActive: false
         }
-      }
+      ]
     };
   }
   render() {
+    debugger
+    let data = this.state.data;
+    let activeVideo = data.find(video => video.isActive);
     return (
       <div className="App">
         <div className="App-header">
@@ -37,7 +47,8 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <VideoList data={this.state.data}/>
+        <Video video={activeVideo} />
+        <VideoList data={this.state.data} />
       </div>
     );
   }
