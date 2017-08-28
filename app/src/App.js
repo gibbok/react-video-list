@@ -7,7 +7,10 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      ui: {},
+      ui: {
+        title: 'List of most viewed YouTube videos',
+        titleVideoList: 'Top 10s'
+      },
       data: {
         'kJQP7kiw5Fk':{
           title: 'Luis Fonsi - Despacito ft. Daddy Yankee',
