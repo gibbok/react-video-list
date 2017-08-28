@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './VideoTile.css';
 
 class VideoTile extends Component {
     constructor(props) {
@@ -11,12 +12,22 @@ class VideoTile extends Component {
     }
     render() {
         return (
-            <div onClick={this.onClickVideoTile}>
-                <div>
-                    {'Title:'}
+            <div className='videoTile' onClick={this.onClickVideoTile}>
+                <div className='videoTile__title'>
+                    <div className='videoTile__title__text'>
+                        {'Title:'}
+                    </div>
+                    <div className='videoTile__title__value'>
+                        {this.props.title}
+                    </div>
                 </div>
-                <div>
-                    {this.props.title}
+                <div className='videoTile__views'>
+                    <div className='videoTile__views__text'>
+                        {'Views:'}
+                    </div>
+                    <div className='videoTile__views__value'>
+                        {this.props.views}
+                    </div>
                 </div>
             </div>
         );
