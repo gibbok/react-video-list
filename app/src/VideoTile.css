@@ -4,6 +4,7 @@
     flex-direction: column;
     width: 420px;
     margin-bottom: 10px;
+    cursor: pointer;
 }
 .videoTile:last-of-type {
     margin-bottom: 0;
