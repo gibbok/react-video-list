@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import VideoListHeader from './VideoListHeader.js';
 import VideoTile from './VideoTile.js';
 import Loader from './Loader.js';
 
@@ -19,7 +20,10 @@ class VideoList extends Component {
                 />
             );
         return (
-            <div>{listVideoTiles}</div>
+            <div>
+                <VideoListHeader title={this.props.title} />
+                <div>{listVideoTiles}</div>
+            </div>
         );
     }
 };

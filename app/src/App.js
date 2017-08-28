@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import Header from './Header.js';
 import VideoList from './VideoList.js';
 import Video from './Video';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
@@ -9,8 +9,8 @@ class App extends Component {
     super(props);
     this.state = {
       ui: {
-        title: 'List of most viewed YouTube videos',
-        titleVideoList: 'Top 10s',
+        header: 'List of most viewed YouTube videos',
+        headerVideoList: 'Top 10s',
       },
       data: []
     };
@@ -44,14 +44,21 @@ class App extends Component {
     let data = this.state.data;
     let activeVideo = data.find(video => video.isActive);
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <div className='app'>
+        <div className='app__header'>
+          <Header title={this.state.ui.header} />
+          <Video
+            video={activeVideo}
+          />
         </div>
-        <Video video={activeVideo} />
-        <VideoList data={this.state.data} activeVideo={this.activeVideo} />
-      </div>
+        <div className='app__videoList'>
+          <VideoList
+            data={this.state.data}
+            title={this.state.ui.headerVideoList}
+            activeVideo={this.activeVideo}
+          />
+        </div >
+      </div >
     );
   }
 }
