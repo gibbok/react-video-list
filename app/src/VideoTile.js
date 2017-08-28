@@ -26,7 +26,7 @@ class VideoTile extends Component {
                         {'Views:'}
                     </div>
                     <div className='videoTile__views__value'>
-                        {this.props.views}
+                        {this.props.views.toLocaleString()}
                     </div>
                 </div>
             </div>
