@@ -13,6 +13,7 @@ class VideoList extends Component {
                 id={video.id}
                 title={video.title}
                 views={video.views}
+                activeVideo={this.props.activeVideo}
             />
         );
         return (

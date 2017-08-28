@@ -33,6 +33,17 @@ class App extends Component {
         }
       ]
     };
+    this.activeVideo = this.activeVideo.bind(this);
+  }
+  activeVideo(id){
+    let data = [...this.state.data];
+    // de activate current active video
+    let currentActiveVideo = data.find(video => video.isActive);
+    currentActiveVideo.isActive = false;
+    // activate new video
+    let index = data.findIndex(video => video.id === id);
+    data[index].isActive = true;
+    this.setState({data});
   }
   render() {
     let data = this.state.data;
@@ -44,7 +55,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <Video video={activeVideo} />
-        <VideoList data={this.state.data} />
+        <VideoList data={this.state.data} activeVideo={this.activeVideo} />
       </div>
     );
   }

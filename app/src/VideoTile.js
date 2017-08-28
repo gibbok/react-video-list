@@ -7,6 +7,7 @@ class VideoTile extends Component {
     }
     onClickVideoTile() {
         console.log('onClickVideoTile', this.props.id);
+        this.props.activeVideo(this.props.id);
     }
     render() {
         return (
