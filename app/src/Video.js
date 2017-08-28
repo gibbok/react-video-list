@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import Loader from './Loader.js';
+import './Video.css';
 
+/*
+ * Video main component.
+ * Display a YouTube embed video when activated.
+ */
 class Video extends Component {
     constructor(props) {
         super(props);

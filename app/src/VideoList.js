@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import VideoListHeader from './VideoListHeader.js';
 import VideoTile from './VideoTile.js';
 import Loader from './Loader.js';
 
+/*
+ * List of top 10s videos.
+ */
 class VideoList extends Component {
     constructor(props) {
         super(props);
@@ -21,7 +23,6 @@ class VideoList extends Component {
             );
         return (
             <div>
-                <VideoListHeader title={this.props.title} />
                 <div>{listVideoTiles}</div>
             </div>
         );

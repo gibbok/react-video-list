@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 import './VideoTile.css';
 
+/*
+ * Video tile information.
+ */
 class VideoTile extends Component {
     constructor(props) {
         super(props);
         this.onClickVideoTile = this.onClickVideoTile.bind(this);
     }
     onClickVideoTile() {
-        console.log('onClickVideoTile', this.props.id);
+        // lift state up here, by calling `activeVideo`
+        // passed in `props` by a parent component
         this.props.activeVideo(this.props.id);
     }
     render() {

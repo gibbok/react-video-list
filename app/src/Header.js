@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './Header.css'
 
+/*
+ * Simple header for the application.
+*/
 class Header extends Component {
     constructor(props) {
         super(props);
